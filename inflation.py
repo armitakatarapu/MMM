@@ -1,6 +1,4 @@
-inflation_rate = 2
 NUM_OF_YEARS = 24
-
 INFLATION_RATES = [
     3.0,  # 2024
     4.1,  # 2023
@@ -29,7 +27,6 @@ INFLATION_RATES = [
     3.4   # 2000
 ]
 
-infaltion = float(inflation_rate / 100)
 
 final_price = input("Enter your deposit amount")
 while True:
@@ -44,6 +41,6 @@ while True:
         print("Invalid input. Please enter a valid number.")
 
 for i in range(NUM_OF_YEARS):
+    inflation_rate = INFLATION_RATES[i]
     initial_price = (100 * final_price) / (inflation_rate + 100)
     final_price = initial_price
-    inflation_rate = INFLATION_RATES[i]
