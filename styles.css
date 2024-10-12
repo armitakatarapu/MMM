@@ -78,15 +78,22 @@ h6 {
   font-family: "Mexcellent";
 }
 
-body {
+main {
   background-color: black;
+  width: 100%; 
+  height: 100vh; 
+  background-image: url(https://media.discordapp.net/attachments/1294354649989644318/1294779918466683053/360_F_819631278_hH9bHaFB4iGOV9uUNzvOb3ZyiWnTjXoA.png?ex=670c4144&is=670aefc4&hm=d02dab136ca812a8ca9e8890e85f0d761bd7705c851beca3250177061d498c59&=&format=webp&quality=lossless&width=940&height=537);
+  background-size: 100%; 
+  background-position:center; 
+  background-repeat: no-repeat;
 }
 
 .nav-bar {
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .logo {
