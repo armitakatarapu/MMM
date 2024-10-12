@@ -74,7 +74,7 @@ h6 {
 }
 
 * {
-  outline-style: dashed;
+  /* outline-style: dashed; */
   font-family: "Mexcellent";
 }
 
@@ -90,7 +90,7 @@ body {
 }
 
 .logo {
-  height: 8rem;
+  height: 10rem;
   aspect-ratio: 1;
 }
 
@@ -102,6 +102,44 @@ body {
 }
 
 .header-item {
-  font-size: 2rem;
   color: white;
+  font-style: white;
+  font-size: 2rem;
+  margin-right: 2rem;
+  text-decoration: none;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.header-item:hover {
+  color: rgb(238, 154, 193);
+  transition: 150ms;
+}
+
+/* .hero {
+  
+} */
+
+.pop-up-window {
+  background-color: rgb(238, 154, 193);
+  height: 50rem;
+  width: 70rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* visibility: hidden; */
+}
+
+.close-button {
+  height: 4rem;
+  aspect-ratio: 1;
+  background-color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.pop-up-window-header {
+  background-color: white;
 }
