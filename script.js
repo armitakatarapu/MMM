@@ -29,7 +29,10 @@ function addContent(headers) {
     addContentTools();
   } else if (headers === "about") {
     addContentAbout();
-  } else {
+  } else if(headers == "news") {
+    addContentNews(); 
+  }
+    else {
     console.log("Content not found");
   }
 }
@@ -330,7 +333,72 @@ function addContentAbout() {
   content.appendChild(paragraph);
 }
 
+
 closeButton?.addEventListener("click", () => {
   clickSound.play();
   popUpWindow.style.visibility = "hidden";
+});
+
+function addContentNews() {
+  // Clear previous content
+  content.innerHTML = "";
+
+  // Append heading to the pop-up
+  let heading = document.createElement("h1");
+  heading.textContent = "News";
+  heading.classList.add("headings");
+  content.appendChild(heading);
+
+  // Create news section inside the pop-up
+  const newsSection = document.createElement('section');
+  newsSection.id = 'news';
+  content.appendChild(newsSection);
+
+  // Fetch and display news
+  async function fetchNews() {
+      const apiKey = 'f689821c7ab7418db7436f94da4da4a4';  // Use your own API key here
+      const url = `https://newsapi.org/v2/everything?q=finance&apiKey=${apiKey}`;
+
+      try {
+          const response = await fetch(url);
+          const data = await response.json();
+          displayNews(data.articles);
+      } catch (error) {
+          console.error('Error fetching news:', error);
+          newsSection.innerHTML = '<p>Failed to load news articles.</p>';
+      }
+  }
+
+  function displayNews(articles) {
+      if (articles.length === 0) {
+          newsSection.innerHTML += '<p>No news articles available.</p>';
+          return;
+      }
+
+      articles.forEach(article => {
+          const articleElement = document.createElement('article');
+          articleElement.classList.add('news-item');
+          articleElement.innerHTML = `
+              <h3>${article.title}</h3>
+              <p>${article.description || ''} <a href="${article.url}" target="_blank">Read more</a></p>
+          `;
+          newsSection.appendChild(articleElement);
+      });
+  }
+
+  // Fetch news when "News" section is opened
+  fetchNews();
+}
+
+// Modify the header button functionality to include the news button
+headerButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    clickSound.play();
+    popUpName.textContent = button.textContent;
+    popUpIcon.src = `/assets/${button.textContent}.png`;
+
+    // Call the corresponding content function based on button text
+    addContent(popUpName.textContent);
+    popUpWindow.style.visibility = "visible";
+  });
 });

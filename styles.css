@@ -241,8 +241,33 @@ main {
 
 .pop-up-window-content {
   margin: 1rem;
+  overflow-y: auto; 
 }
 
 .big-button {
   font-size: 2rem;
 }
+
+#news {
+  background-color: #fff;
+  border: 2px dashed #000080;
+  margin: 20px;
+  padding: 10px;
+  overflow-y: scroll; 
+}
+
+.news-item {
+  border-bottom: 1px solid #000080;
+  padding: 10px 0;
+}
+
+.news-item h3 {
+  font-size: 1.5em;
+  color: #ff0066;
+}
+
+.news-item a {
+  color: #000080;
+  text-decoration: underline;
+}
+
