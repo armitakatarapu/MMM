@@ -56,7 +56,7 @@ function addContentHome() {
   //content.appendChild(heading);
   //content.appendChild(paragraph);
   //content.appendChild(container); 
-  let headingSpan = document.createElement("span");
+  let headingSpan = document.createElement("strong");
   headingSpan.classList.add("text-background");
   headingSpan.textContent = heading.textContent;
 
@@ -188,7 +188,7 @@ function addContentAbout() {
                         "Whether it’s recognizing the importance of data security, understanding the value of fintech innovations, or being prepared for potential disruptions, financial literacy in the digital age is essential for safeguarding your financial future.";
   paragraph.classList.add("content");
 
-  let headingSpan = document.createElement("span");
+  let headingSpan = document.createElement("strong");
   headingSpan.classList.add("text-background");
   headingSpan.textContent = heading.textContent;
 
