@@ -141,7 +141,12 @@ main {
 }
 
 .pop-up-window {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background: rgb(48, 43, 99);
+  background: linear-gradient(
+    135deg,
+    rgba(48, 43, 99, 1) 0%,
+    rgba(127, 90, 131, 1) 100%
+  );
   background-size: 400% 400%;
   animation: gradientShift 10s ease infinite;
 
