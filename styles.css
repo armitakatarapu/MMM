@@ -249,7 +249,7 @@ main {
 }
 
 #news {
-  background-color: #fff;
+  background-color: white;
   border: 2px dashed #000080;
   margin: 20px;
   padding: 10px;
@@ -263,7 +263,7 @@ main {
 
 .news-item h3 {
   font-size: 1.5em;
-  color: #ff0066;
+  color: #0f0c29;
 }
 
 .news-item a {
