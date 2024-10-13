@@ -78,6 +78,11 @@ h6 {
   src: url("font/mexcellent/PLANK___.TTF");
 }
 
+@font-face {
+  font-family: "Poppins";
+  src: url("font/mexcellent/poppins/Poppins-Black.ttf");
+}
+
 * {
   /* outline-style: dashed; */
   font-family: "Mexcellent";
@@ -187,4 +192,30 @@ main {
   align-items: center;
   justify-content: space-between;
   margin-left: 1rem;
+}
+
+.headings {
+  font-family: "Poppins";
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.content {
+  font-family: "Poppins";
+  font-size: 1.5rem;
+}
+
+.tool-button {
+  font-size: 4rem;
+  padding: 1rem;
+  background-color: rgb(105, 127, 230);
+  border: none;
+  color: white;
+  font-family: "Poppins";
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.pop-up-window-content {
+  margin: 1rem;
 }
