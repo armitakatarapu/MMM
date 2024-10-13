@@ -73,6 +73,11 @@ h6 {
   src: url("font/mexcellent/mexcellent\ 3d.otf");
 }
 
+@font-face {
+  font-family: "Plank";
+  src: url("font/mexcellent/PLANK___.TTF");
+}
+
 * {
   /* outline-style: dashed; */
   font-family: "Mexcellent";
@@ -82,16 +87,27 @@ body {
   background-color: black;
 }
 
+main {
+  width: 100%;
+  height: 100vh;
+  background-image: url("assets/backgrounds.png");
+  background-size: 100%;
+  background-position: center;
+  background-size: contain;
+}
+
 .nav-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1rem;
+  padding-left: 2rem;
 }
 
-.logo {
-  height: 10rem;
-  aspect-ratio: 1;
+#logo {
+  font-family: "Plank";
+  font-size: 3rem;
+  color: white;
 }
 
 .nav-bar-item {
@@ -129,7 +145,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* visibility: hidden; */
+  visibility: hidden;
+  border: solid black;
 }
 
 .close-button {
@@ -138,8 +155,30 @@ body {
   background-color: white;
   cursor: pointer;
   border: none;
+  margin-right: 1rem;
 }
 
 .pop-up-window-header {
   background-color: white;
+  border: solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#pop-up-window-name {
+  font-size: 3rem;
+  padding: 1rem;
+}
+
+#pop-up-window-icon {
+  height: 3rem;
+  aspect-ratio: 1;
+}
+
+.icon-title-pair {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 1rem;
 }

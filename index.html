@@ -11,11 +11,11 @@
   <body>
     <header>
       <div class="nav-bar">
-        <img class="logo" src="/assets/logo.png" alt="" />
+        <span id="logo">MMM</span>
         <ul class="nav-bar-item">
-          <li><button class="header-item" id="home">Home</button></li>
-          <li><button class="header-item" id="tools">Tools</button></li>
-          <li><button class="header-item" id="about">About</button></li>
+          <li><button class="header-item">home</button></li>
+          <li><button class="header-item">tools</button></li>
+          <li><button class="header-item">about</button></li>
         </ul>
       </div>
     </header>
@@ -24,7 +24,13 @@
 
     <div class="pop-up-window">
       <div class="pop-up-window-header">
-        <button class="close-button"><img  src="assets/close.png" alt="" /></button>
+        <div class="icon-title-pair">
+          <img id="pop-up-window-icon" src="" alt="" />
+          <span id="pop-up-window-name"></span>
+        </div>
+        <button class="close-button">
+          <img src="assets/close.png" alt="" />
+        </button>
       </div>
     </div>
   </body>
