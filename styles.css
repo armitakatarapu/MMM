@@ -143,7 +143,10 @@ main {
 } */
 
 .pop-up-window {
-  background-color: rgb(238, 154, 193);
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+
   height: 50rem;
   width: 70rem;
   position: fixed;
@@ -152,6 +155,18 @@ main {
   transform: translate(-50%, -50%);
   visibility: hidden;
   border: solid black;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .close-button {
@@ -194,11 +209,6 @@ main {
   font-size: 3rem;
 }
 
-.content {
-  font-family: "Poppins";
-  font-size: 1.5rem;
-}
-
 .tool-button {
   font-size: 4rem;
   padding: 1rem;
@@ -207,7 +217,6 @@ main {
   color: white;
   font-family: "Poppins";
   border-radius: 10px;
-  margin-bottom: 1rem;
 }
 
 .pop-up-window-content {
