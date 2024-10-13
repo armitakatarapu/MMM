@@ -35,13 +35,40 @@ function addContent(headers) {
 // HOME
 
 function addContentHome() {
+  content.innerHTML = "";
+
+  //let container = document.createElement("div");
+  //container.classList.add("content-box"); 
+  
   let heading = document.createElement("h1");
-  heading.textContent = "";
+  heading.textContent = "Millennium Money Mentor";
   heading.classList.add("headings");
 
   let paragraph = document.createElement("p");
-  paragraph.textContent = "";
+  //paragraph.textContent = "Step into the future with a retro-futuristic twist at Millennium Money Mentor\n Key features of MMM: \nCompares how $100 in 2000 translates to today's value\nTeaches about inflation and the importance of financial planning";
+  paragraph.innerHTML = "Step into the future with a retro-futuristic twist at Millennium Money Mentor.<br>" +
+                        "Key features of MMM:<br>" +
+                        "• Compares how $100 in 2000 translates to today's value.<br>" +
+                        "• Teaches about inflation and the importance of financial planning.";
   paragraph.classList.add("content");
+
+  
+  //content.appendChild(heading);
+  //content.appendChild(paragraph);
+  //content.appendChild(container); 
+  let headingSpan = document.createElement("span");
+  headingSpan.classList.add("text-background");
+  headingSpan.textContent = heading.textContent;
+
+  let paragraphSpan = document.createElement("span");
+  paragraphSpan.classList.add("text-background");
+  paragraphSpan.innerHTML = paragraph.innerHTML;
+
+  // Append the spans to the content
+  content.appendChild(headingSpan);
+  content.appendChild(paragraphSpan);
+  
+
 }
 
 // TOOLS
@@ -149,12 +176,30 @@ function loadSecondTool() {
 
 function addContentAbout() {
   let heading = document.createElement("h1");
-  heading.textContent = "";
+  heading.textContent = "The Millennium Bug";
   heading.classList.add("headings");
 
   let paragraph = document.createElement("p");
-  paragraph.textContent = "";
+  paragraph.innerHTML = "Also known as the Y2K bug, serves as a powerful reminder of how intertwined personal finance and technology have become.<br>" +
+                        "At the turn of the millennium, the world faced a potential digital disaster because many computer systems stored dates using only the last two digits of the year.<br>" +
+                        "As the clock struck midnight on January 1, 2000, there was widespread concern that systems might interpret the year 2000 as 1900, causing glitches in everything from financial institutions to power grids.<br>" +
+                        "Though much of the potential chaos was averted, the Y2K bug highlighted how reliant our financial systems are on technology.<br>" + 
+                        "This historical moment emphasizes the importance of financial literacy, especially in understanding how technology shapes personal finance. <br>" + 
+                        "Whether it’s recognizing the importance of data security, understanding the value of fintech innovations, or being prepared for potential disruptions, financial literacy in the digital age is essential for safeguarding your financial future.";
   paragraph.classList.add("content");
+
+  let headingSpan = document.createElement("span");
+  headingSpan.classList.add("text-background");
+  headingSpan.textContent = heading.textContent;
+
+  let paragraphSpan = document.createElement("span");
+  paragraphSpan.classList.add("text-background");
+  paragraphSpan.innerHTML = paragraph.innerHTML;
+
+  // Append the spans to the content
+  content.appendChild(headingSpan);
+  content.appendChild(paragraphSpan);
+
 }
 
 closeButton?.addEventListener("click", () => {

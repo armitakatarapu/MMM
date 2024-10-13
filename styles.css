@@ -204,7 +204,13 @@ main {
   font-family: "Poppins";
   font-size: 1.5rem;
 }
-
+.text-background {
+  background-color: white; 
+  padding: 10px;          
+  border-radius: 4px;     
+  display: inline-block;   
+  margin: 10px 0;         
+}
 .tool-button {
   font-size: 4rem;
   padding: 1rem;
