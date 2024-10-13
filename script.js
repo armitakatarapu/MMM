@@ -348,7 +348,7 @@ function addContentNews() {
   // Fetch and display news
   async function fetchNews() {
       const apiKey = 'f689821c7ab7418db7436f94da4da4a4';  // Use your own API key here
-      const url = `https://newsapi.org/v2/everything?q=finance&apiKey=${apiKey}`;
+      const url = `https://newsapi.org/v2/everything?q=finance&pageSize=3&apiKey=${apiKey}`;
 
       try {
           const response = await fetch(url);
