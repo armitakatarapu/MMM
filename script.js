@@ -315,10 +315,18 @@ function createInputField(labelText) {
 function addContentAbout() {
   let heading = document.createElement("h1");
   heading.textContent = "About Us";
+  heading.classList.add("headings"); 
   content.appendChild(heading);
 
   let paragraph = document.createElement("p");
-  paragraph.textContent = "Learn more about our tools!";
+  paragraph.innerHTML = 
+  "The Millennium Bug, also known as the Y2K bug, serves as a powerful reminder of how intertwined personal finance and technology have become.<br>"+
+  "At the turn of the millennium, the world faced a potential digital disaster because many computer systems stored dates using only the last two digits of the year.<br>" + 
+  "Though much of the potential chaos was averted, the Y2K bug highlighted how reliant our financial systems are on technology.<br>" +
+  "This historical moment emphasizes the importance of financial literacy, especially in understanding how technology shapes personal finance.<br>" + 
+  "Understanding inflation became crucial, not only for making sense of financial planning in 2000 but also for adapting to the new, tech-driven economy that emerged in its wake.<br>" + 
+  "Whether it’s recognizing the importance of data security, understanding the value of fintech innovations, or being prepared for potential disruptions, financial literacy in the digital age is essential for safeguarding your financial future.";
+  paragraph.classList.add("content"); 
   content.appendChild(paragraph);
 }
 
