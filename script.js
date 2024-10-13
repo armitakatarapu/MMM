@@ -6,10 +6,13 @@ let popUpName = document.querySelector("#pop-up-window-name");
 
 let content = document.querySelector(".content");
 
+const clickSound = new Audio("/audio/select.mp3");
+
 let inflationValues = [];
 
 headerButtons.forEach((button) => {
   button.addEventListener("click", () => {
+    clickSound.play();
     popUpName.textContent = button.textContent;
     popUpIcon.src = `/assets/${button.textContent}.png`;
 
@@ -27,26 +30,57 @@ function addContent(headers) {
   } else if (headers === "about") {
     addContentAbout();
   } else {
-    content.textContent = "Content not found.";
+    console.log("Content not found");
   }
 }
 
 function addContentHome() {
+  // Clear previous content
+  content.innerHTML = "";
+
+  // Create heading
   let heading = document.createElement("h1");
-  heading.textContent = "Welcome to the Home Page!";
+  heading.textContent = "Millennium Money Mentor";
+  heading.classList.add("headings");
+
+  // Create paragraph with retro theme
+  let paragraph = document.createElement("p");
+  paragraph.innerHTML =
+    "Step into the future with a retro-futuristic twist at Millennium Money Mentor.<br>" +
+    "Key features of MMM:<br>" +
+    "• Compares how $$ in today's translates to 2000 value.<br>" +
+    "• Teaches about inflation and the importance of financial planning.</br>" +
+    "• Provides a graph illustrating these inflation values.</br>" +
+    "• Computes the monthly loan repayment amount, which facilitates improved repayment planning. ";
+  paragraph.classList.add("content"); // Class for paragraph styling
+
+  // Apply Y2K styling
+  // Create spans for additional styling
+  // let headingSpan = document.createElement("span");
+  // headingSpan.classList.add("text-background"); // Class for background styling
+  // headingSpan.textContent = heading.textContent;
+
+  // let paragraphSpan = document.createElement("span");
+  // paragraphSpan.classList.add("text-background"); // Class for background styling
+  // paragraphSpan.innerHTML = paragraph.innerHTML;
+
   content.appendChild(heading);
+  content.appendChild(paragraph);
 }
 
 function addContentTools() {
+  clickSound.play();
   content.innerHTML = "";
 
   let calcButton = document.createElement("button");
   calcButton.textContent = "Inflation Calculator";
   applyY2KButtonStyle(calcButton);
+  calcButton.classList.add("big-button");
 
   let secondToolButton = document.createElement("button");
   secondToolButton.textContent = "Loan Repayment Calculator";
   applyY2KButtonStyle(secondToolButton);
+  secondToolButton.classList.add("big-button");
 
   content.appendChild(calcButton);
   content.appendChild(secondToolButton);
@@ -56,6 +90,7 @@ function addContentTools() {
 }
 
 function loadInflationCalculator() {
+  clickSound.play();
   content.innerHTML = "";
 
   let backButton = document.createElement("button");
@@ -104,6 +139,7 @@ function loadInflationCalculator() {
   ];
 
   calculateButton.addEventListener("click", () => {
+    clickSound.play();
     let deposit = parseFloat(depositInput.value);
     if (isNaN(deposit) || deposit <= 0) {
       resultDisplay.textContent = "Please enter a valid amount greater than 0.";
@@ -129,6 +165,7 @@ function loadInflationCalculator() {
 }
 
 function displayGraph() {
+  clickSound.play();
   content.innerHTML = "";
 
   const backButton = createButton(
@@ -209,7 +246,14 @@ function applyY2KInputStyle(input) {
   input.style.padding = "5px";
 }
 
+function applyY2KParagraphStyle(paragraph) {
+  paragraph.style.marginLeft = "10px";
+  paragraph.style.color = "#00FFB2";
+  paragraph.style.fontFamily = "'Press Start 2P', cursive";
+}
+
 function loadLoanCalculator() {
+  clickSound.play();
   content.innerHTML = "";
 
   const backButton = createButton("Back to Tools Menu", addContentTools);
@@ -232,8 +276,9 @@ function loadLoanCalculator() {
 
   content.append(loanInput, interestInput, yearsInput, calculateButton);
 
-  const resultDisplay = document.createElement("div");
+  const resultDisplay = document.createElement("p");
   resultDisplay.style.marginTop = "20px";
+  applyY2KParagraphStyle(resultDisplay);
   content.appendChild(resultDisplay);
 
   function calculateLoan() {
@@ -278,5 +323,6 @@ function addContentAbout() {
 }
 
 closeButton?.addEventListener("click", () => {
+  clickSound.play();
   popUpWindow.style.visibility = "hidden";
 });

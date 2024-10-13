@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -84,8 +86,7 @@ h6 {
 }
 
 * {
-  /* outline-style: dashed; */
-  font-family: "Mexcellent";
+  cursor: url("assets/cursor.png"), auto;
 }
 
 body {
@@ -107,6 +108,7 @@ main {
   justify-content: space-between;
   padding: 1rem;
   padding-left: 2rem;
+  font-family: "Press Start 2P", cursive;
 }
 
 #logo {
@@ -130,17 +132,13 @@ main {
   text-decoration: none;
   background-color: black;
   border: none;
-  cursor: pointer;
+  cursor: url("assets/pointer.png");
 }
 
 .header-item:hover {
   color: rgb(238, 154, 193);
   transition: 150ms;
 }
-
-/* .hero {
-  
-} */
 
 .pop-up-window {
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
@@ -173,7 +171,7 @@ main {
   height: 4rem;
   aspect-ratio: 1;
   background-color: white;
-  cursor: pointer;
+  cursor: url("assets/pointer.png");
   border: none;
   margin-right: 1rem;
 }
@@ -184,6 +182,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: "Press Start 2P", cursive;
 }
 
 #pop-up-window-name {
@@ -204,9 +203,16 @@ main {
 }
 
 .headings {
-  font-family: "Poppins";
-  font-weight: bold;
-  font-size: 3rem;
+  font-family: "Press Start 2P", cursive;
+  font-weight: normal;
+  font-size: 2.5rem;
+  color: #00ffb2;
+}
+
+.content {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1rem;
+  color: #ff00ff;
 }
 
 .tool-button {
@@ -221,4 +227,8 @@ main {
 
 .pop-up-window-content {
   margin: 1rem;
+}
+
+.big-button {
+  font-size: 2rem;
 }
