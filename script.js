@@ -328,7 +328,8 @@ function addContentAbout() {
   "Though much of the potential chaos was averted, the Y2K bug highlighted how reliant our financial systems are on technology.<br>" +
   "This historical moment emphasizes the importance of financial literacy, especially in understanding how technology shapes personal finance.<br>" + 
   "Understanding inflation became crucial, not only for making sense of financial planning in 2000 but also for adapting to the new, tech-driven economy that emerged in its wake.<br>" + 
-  "Whether it’s recognizing the importance of data security, understanding the value of fintech innovations, or being prepared for potential disruptions, financial literacy in the digital age is essential for safeguarding your financial future.";
+  "Whether it’s recognizing the importance of data security, understanding the value of fintech innovations, or being prepared for potential disruptions, financial literacy in the digital age is essential for safeguarding your financial future.<br>" +
+  "Our mission is to empower individuals to master their financial future by bridging the past and present. Our goal is to make personal finance accessible, fun, and empowering for all, ensuring that everyone has the knowledge to thrive in today’s digital economy and beyond.";
   paragraph.classList.add("content"); 
   content.appendChild(paragraph);
 }
