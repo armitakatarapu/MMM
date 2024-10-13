@@ -29,21 +29,20 @@ function addContent(headers) {
     addContentTools();
   } else if (headers === "about") {
     addContentAbout();
+  } else if (headers === "simulator") {
+    addContentSimulator();
   } else {
-    console.log("Content not found");
+    console.log("No header");
   }
 }
 
 function addContentHome() {
-  // Clear previous content
   content.innerHTML = "";
 
-  // Create heading
   let heading = document.createElement("h1");
   heading.textContent = "Millennium Money Mentor";
   heading.classList.add("headings");
 
-  // Create paragraph with retro theme
   let paragraph = document.createElement("p");
   paragraph.innerHTML =
     "Step into the future with a retro-futuristic twist at Millennium Money Mentor.<br>" +
@@ -52,17 +51,7 @@ function addContentHome() {
     "• Teaches about inflation and the importance of financial planning.</br>" +
     "• Provides a graph illustrating these inflation values.</br>" +
     "• Computes the monthly loan repayment amount, which facilitates improved repayment planning. ";
-  paragraph.classList.add("content"); // Class for paragraph styling
-
-  // Apply Y2K styling
-  // Create spans for additional styling
-  // let headingSpan = document.createElement("span");
-  // headingSpan.classList.add("text-background"); // Class for background styling
-  // headingSpan.textContent = heading.textContent;
-
-  // let paragraphSpan = document.createElement("span");
-  // paragraphSpan.classList.add("text-background"); // Class for background styling
-  // paragraphSpan.innerHTML = paragraph.innerHTML;
+  paragraph.classList.add("content");
 
   content.appendChild(heading);
   content.appendChild(paragraph);
@@ -335,3 +324,195 @@ closeButton?.addEventListener("click", () => {
   clickSound.play();
   popUpWindow.style.visibility = "hidden";
 });
+
+// ---------------------------------------------------------------------SIMULATOR----------------------------------------------------------------------------------------------
+
+/* <div class="game-controls">
+        <h2>Game Controls</h2>
+        <div id="game-status"></div>
+        <div class="input-group">
+          <label for="interestRate">Interest Rate (%): </label>
+          <input type="number" id="interestRate" value="5" min="0" />
+        </div>
+        <div class="input-group">
+          <label for="quantitativeEasing">QE Amount ($): </label>
+          <input type="number" id="quantitativeEasing" value="0" min="0" />
+        </div>
+        <button id="submitButton">Submit Decisions</button>
+        <button id="resetButton">Reset Game</button>
+      </div>
+       */
+
+// function addContentSimulator() {
+//   clickSound.play();
+//   content.innerHTML = "";
+
+//   let heading = document.createElement("h1");
+//   heading.textContent = "FED Chairman Simulator";
+//   heading.classList.add("headings");
+//   content.appendChild(heading);
+
+//   const interestInput = createInputField("Interest Rate (%) ");
+//   interestInput.style.marginBottom = "1rem";
+//   const qtInput = createInputField("Quantitative Easing/Tightening $ ");
+//   qtInput.style.marginBottom = "1rem";
+
+//   content.appendChild(interestInput);
+//   content.appendChild(qtInput);
+
+//   gameStart();
+// }
+
+// function gameStart() {
+//   let gameStatus = document.getElementById("game-status");
+//   let submitButton = document.getElementById("submitButton");
+//   let resetButton = document.getElementById("resetButton");
+
+//   let gdp = 100000; // Starting GDP
+//   let debt = 20000; // Starting Debt
+//   let inflation = 2; // Starting Inflation
+//   let rounds = 0; // Count of rounds
+
+//   function updateGameStatus() {
+//     gameStatus.innerHTML = `
+//       <p>Round: ${rounds}</p>
+//       <p>GDP: $${gdp.toFixed(2)}</p>
+//       <p>Debt: $${debt.toFixed(2)}</p>
+//       <p>Inflation: ${inflation.toFixed(2)}%</p>
+//     `;
+//   }
+
+//   function simulateEconomy(interestRate, qeAmount) {
+//     // Example logic for economic simulation
+//     if (interestRate < 5) {
+//       gdp *= 1.05; // GDP grows
+//       inflation += 1; // Inflation rises
+//     } else if (interestRate > 5) {
+//       gdp *= 0.95; // GDP decreases
+//       inflation -= 1; // Inflation lowers
+//     }
+
+//     if (qeAmount > 0) {
+//       gdp *= 1.02; // Stimulate GDP with QE
+//       debt += qeAmount; // Increase debt
+//     }
+
+//     rounds++;
+//     updateGameStatus();
+
+//     // Check for game over conditions
+//     if (inflation > 10 || debt > 100000) {
+//       alert("Game Over! Your policies led to unsustainable debt or inflation!");
+//       resetGame();
+//     }
+//   }
+
+//   function resetGame() {
+//     gdp = 100000;
+//     debt = 20000;
+//     inflation = 2;
+//     rounds = 0;
+//     updateGameStatus();
+//   }
+
+//   submitButton.addEventListener("click", () => {
+//     const interestRate = parseFloat(
+//       document.getElementById("interestRate").value
+//     );
+//     const qeAmount = parseFloat(
+//       document.getElementById("quantitativeEasing").value
+//     );
+//     simulateEconomy(interestRate, qeAmount);
+//   });
+
+//   resetButton.addEventListener("click", resetGame);
+
+//   // Initialize game status on load
+//   updateGameStatus();
+// }
+
+function addContentSimulator() {
+  clickSound.play();
+  content.innerHTML = "";
+
+  let heading = document.createElement("h1");
+  heading.textContent = "FED Chairman Simulator";
+  heading.classList.add("headings");
+  content.appendChild(heading);
+
+  const interestInput = createInputField("Interest Rate (%) ");
+  interestInput.style.marginBottom = "1rem";
+  const qtInput = createInputField("Quantitative Easing/Tightening $ ");
+  qtInput.style.marginBottom = "1rem";
+
+  content.appendChild(interestInput);
+  content.appendChild(qtInput);
+
+  const gameStatus = document.createElement("div");
+  gameStatus.id = "game-status";
+  gameStatus.style.marginTop = "20px";
+  applyY2KParagraphStyle(gameStatus);
+  content.appendChild(gameStatus);
+
+  const submitButton = createButton("Submit Decisions", () => {
+    const interestRate = parseFloat(interestInput.querySelector("input").value);
+    const qeAmount = parseFloat(qtInput.querySelector("input").value);
+    simulateEconomy(interestRate, qeAmount);
+  });
+
+  const resetButton = createButton("Reset Game", resetGame);
+
+  content.appendChild(submitButton);
+  content.appendChild(resetButton);
+
+  gameStart(gameStatus);
+}
+
+function gameStart(gameStatus) {
+  let gdp = 100000;
+  let debt = 20000;
+  let inflation = 2;
+  let rounds = 0;
+
+  function updateGameStatus() {
+    gameStatus.innerHTML = `
+      <p>Round: ${rounds}</p>
+      <p>GDP: $${gdp.toFixed(2)}</p>
+      <p>Debt: $${debt.toFixed(2)}</p>
+      <p>Inflation: ${inflation.toFixed(2)}%</p>
+    `;
+  }
+
+  function simulateEconomy(interestRate, qeAmount) {
+    if (interestRate < 5) {
+      gdp *= 1.05;
+      inflation += 1;
+    } else if (interestRate > 5) {
+      gdp *= 0.95;
+      inflation -= 1;
+    }
+
+    if (qeAmount > 0) {
+      gdp *= 1.02;
+      debt += qeAmount;
+    }
+
+    rounds++;
+    updateGameStatus();
+
+    if (inflation > 10 || debt > 100000) {
+      alert("Game Over! Your policies led to unsustainable debt or inflation!");
+      resetGame();
+    }
+  }
+
+  function resetGame() {
+    gdp = 100000;
+    debt = 20000;
+    inflation = 2;
+    rounds = 0;
+    updateGameStatus();
+  }
+
+  updateGameStatus();
+}
