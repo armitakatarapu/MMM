@@ -155,15 +155,6 @@ main {
   /* visibility: hidden; */
 }
 
-.white-box {
-  background-color: white; 
-  padding: 20px;
-  border-radius: 10px; 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
-  margin: 20px auto; 
-  max-width: 90%; 
-}
-
 .close-button {
   height: 4rem;
   aspect-ratio: 1;
